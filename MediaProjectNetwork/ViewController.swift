@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .black
         view.addSubview(tableView)
-        
+        tableView.backgroundColor = .none
         configureLayout()
         let group = DispatchGroup()
         
