@@ -7,7 +7,7 @@
 
 import Alamofire
 
-struct TrendingMovie: Decodable {
+struct TrendingMedia: Decodable {
     let results: [Result]
 }
 struct Result: Decodable {
@@ -28,32 +28,29 @@ class TMDBAPI {
     private init() { }
     
     //"poster_path"
-    func trendingMovie(completionHandler: @escaping ([Result]) -> Void) {
-        func callRequest() {
-            
-            let url = "https://api.themoviedb.org/3/trending/movie/day?language=ko-KR"
-            let header: HTTPHeaders = ["Authorization": APIKey.TMDB]
-            
-            AF.request(url, method: .get, headers: header).responseDecodable(of: TrendingMovie.self) { response in
+    func trendingMedia(api: TMDBRequest, completionHandler: @escaping ([Result]) -> Void) {
+        
+        AF.request(api.endpoint,
+                   method: api.method,
+                   headers: api.header)
+        .responseDecodable(of: TrendingMedia.self) { response in
                 
-                switch response.result {
-                case .success(let value):
-                    print("SUCCESS")
-                    completionHandler(value.results)
-                case .failure(let error):
-                    print("FAILURE", error)
-                }
+            switch response.result {
+            case .success(let value):
+                print("SUCCESS")
+                completionHandler(value.results)
+            case .failure(let error):
+                print("FAILURE", error)
             }
         }
-        callRequest()
     }
-    func trendingTV(completionHandler: @escaping ([Result]) -> Void) {
-        func callRequest() {
+    
+    func trendingPeople(api: TMDBRequest, completionHandler: @escaping ([ResultPeople]) -> Void) {
             
-            let url = "https://api.themoviedb.org/3/trending/tv/day?language=ko-KR"
-            let header: HTTPHeaders = ["Authorization": APIKey.TMDB]
-            
-            AF.request(url, method: .get, headers: header).responseDecodable(of: TrendingMovie.self) { response in
+        AF.request(api.endpoint,
+                   method: api.method,
+                   headers: api.header)
+        .responseDecodable(of: TrendingPeople.self) { response in
                 
                 switch response.result {
                 case .success(let value):
@@ -63,27 +60,5 @@ class TMDBAPI {
                     print("FAILURE", error)
                 }
             }
-        }
-        callRequest()
-    }
-    func trendingPeople(completionHandler: @escaping ([ResultPeople]) -> Void) {
-        func callRequest() {
-            
-            let url = "https://api.themoviedb.org/3/trending/person/day?language=en-US"
-            let header: HTTPHeaders = ["Authorization": APIKey.TMDB]
-            
-            AF.request(url, method: .get, headers: header).responseDecodable(of: TrendingPeople.self) { response in
-                
-                switch response.result {
-                case .success(let value):
-                    print("SUCCESS")
-                    completionHandler(value.results)
-                case .failure(let error):
-                    print("FAILURE", error)
-                }
-            }
-        }
-        callRequest()
     }
 }
-

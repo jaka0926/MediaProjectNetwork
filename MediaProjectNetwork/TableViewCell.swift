@@ -20,7 +20,6 @@ class TableViewCell: UITableViewCell {
     }()
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout())
     
-    
     static func layout() -> UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 120, height: 160)
@@ -47,14 +46,9 @@ class TableViewCell: UITableViewCell {
             make.horizontalEdges.bottom.equalTo(contentView.safeAreaLayoutGuide)
         }
         collectionView.backgroundColor = .none
-        
-        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
-
-

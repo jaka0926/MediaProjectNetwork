@@ -21,6 +21,7 @@
 		CE4F9B7F2C2ACEFF00F9E653 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9B7E2C2ACEFF00F9E653 /* APIKey.swift */; };
 		CE4F9B822C2AD35500F9E653 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CE4F9B812C2AD35500F9E653 /* Kingfisher */; };
 		CE4F9B842C2B0FA200F9E653 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CE4F9B832C2B0FA200F9E653 /* .gitignore */; };
+		CECCD7BA2C2C6D6A006C3767 /* TMDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCD7B92C2C6D6A006C3767 /* TMDBRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		CE4F9B7C2C2ACEC200F9E653 /* TMDBAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAPI.swift; sourceTree = "<group>"; };
 		CE4F9B7E2C2ACEFF00F9E653 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		CE4F9B832C2B0FA200F9E653 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		CECCD7B92C2C6D6A006C3767 /* TMDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,11 +76,12 @@
 			isa = PBXGroup;
 			children = (
 				CE4F9B7E2C2ACEFF00F9E653 /* APIKey.swift */,
+				CECCD7B92C2C6D6A006C3767 /* TMDBRequest.swift */,
+				CE4F9B7C2C2ACEC200F9E653 /* TMDBAPI.swift */,
 				CE4F9B5E2C2ABDAE00F9E653 /* AppDelegate.swift */,
 				CE4F9B602C2ABDAE00F9E653 /* SceneDelegate.swift */,
 				CE4F9B622C2ABDAE00F9E653 /* ViewController.swift */,
 				CE4F9B722C2ABFF200F9E653 /* TableViewCell.swift */,
-				CE4F9B7C2C2ACEC200F9E653 /* TMDBAPI.swift */,
 				CE4F9B7A2C2AC89600F9E653 /* CollectionViewCell.swift */,
 				CE4F9B642C2ABDAE00F9E653 /* Main.storyboard */,
 				CE4F9B672C2ABDB100F9E653 /* Assets.xcassets */,
@@ -174,6 +177,7 @@
 				CE4F9B7F2C2ACEFF00F9E653 /* APIKey.swift in Sources */,
 				CE4F9B632C2ABDAE00F9E653 /* ViewController.swift in Sources */,
 				CE4F9B732C2ABFF200F9E653 /* TableViewCell.swift in Sources */,
+				CECCD7BA2C2C6D6A006C3767 /* TMDBRequest.swift in Sources */,
 				CE4F9B5F2C2ABDAE00F9E653 /* AppDelegate.swift in Sources */,
 				CE4F9B612C2ABDAE00F9E653 /* SceneDelegate.swift in Sources */,
 				CE4F9B7D2C2ACEC200F9E653 /* TMDBAPI.swift in Sources */,

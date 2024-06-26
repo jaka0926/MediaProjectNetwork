@@ -23,10 +23,10 @@ class CollectionViewCell: UICollectionViewCell {
         posterImage.backgroundColor = .brown
         posterImage.layer.cornerRadius = 10
         posterImage.clipsToBounds = true
+        posterImage.contentMode = .scaleAspectFill
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
