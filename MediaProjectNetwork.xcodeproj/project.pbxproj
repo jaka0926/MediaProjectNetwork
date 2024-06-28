@@ -9,18 +9,20 @@
 /* Begin PBXBuildFile section */
 		CE4F9B5F2C2ABDAE00F9E653 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9B5E2C2ABDAE00F9E653 /* AppDelegate.swift */; };
 		CE4F9B612C2ABDAE00F9E653 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9B602C2ABDAE00F9E653 /* SceneDelegate.swift */; };
-		CE4F9B632C2ABDAE00F9E653 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9B622C2ABDAE00F9E653 /* ViewController.swift */; };
+		CE4F9B632C2ABDAE00F9E653 /* TrendingMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9B622C2ABDAE00F9E653 /* TrendingMediaView.swift */; };
 		CE4F9B662C2ABDAE00F9E653 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = CE4F9B652C2ABDAE00F9E653 /* Base */; };
 		CE4F9B682C2ABDB100F9E653 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4F9B672C2ABDB100F9E653 /* Assets.xcassets */; };
 		CE4F9B6B2C2ABDB100F9E653 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = CE4F9B6A2C2ABDB100F9E653 /* Base */; };
-		CE4F9B732C2ABFF200F9E653 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9B722C2ABFF200F9E653 /* TableViewCell.swift */; };
+		CE4F9B732C2ABFF200F9E653 /* _TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9B722C2ABFF200F9E653 /* _TableViewCell.swift */; };
 		CE4F9B762C2AC24E00F9E653 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE4F9B752C2AC24E00F9E653 /* SnapKit */; };
 		CE4F9B792C2AC25800F9E653 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CE4F9B782C2AC25800F9E653 /* Alamofire */; };
-		CE4F9B7B2C2AC89600F9E653 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9B7A2C2AC89600F9E653 /* CollectionViewCell.swift */; };
+		CE4F9B7B2C2AC89600F9E653 /* _CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9B7A2C2AC89600F9E653 /* _CollectionViewCell.swift */; };
 		CE4F9B7D2C2ACEC200F9E653 /* TMDBAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9B7C2C2ACEC200F9E653 /* TMDBAPI.swift */; };
 		CE4F9B7F2C2ACEFF00F9E653 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9B7E2C2ACEFF00F9E653 /* APIKey.swift */; };
 		CE4F9B822C2AD35500F9E653 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CE4F9B812C2AD35500F9E653 /* Kingfisher */; };
 		CE4F9B842C2B0FA200F9E653 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CE4F9B832C2B0FA200F9E653 /* .gitignore */; };
+		CE6F7DD72C2EECE2004D1DB6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F7DD62C2EECE2004D1DB6 /* SearchViewController.swift */; };
+		CE6F7DDA2C2EFCEC004D1DB6 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE6F7DD92C2EFCEC004D1DB6 /* IQKeyboardManagerSwift */; };
 		CECCD7BA2C2C6D6A006C3767 /* TMDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCD7B92C2C6D6A006C3767 /* TMDBRequest.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,16 +30,17 @@
 		CE4F9B5B2C2ABDAE00F9E653 /* MediaProjectNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaProjectNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4F9B5E2C2ABDAE00F9E653 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE4F9B602C2ABDAE00F9E653 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE4F9B622C2ABDAE00F9E653 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE4F9B622C2ABDAE00F9E653 /* TrendingMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMediaView.swift; sourceTree = "<group>"; };
 		CE4F9B652C2ABDAE00F9E653 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE4F9B672C2ABDB100F9E653 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE4F9B6A2C2ABDB100F9E653 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE4F9B6C2C2ABDB100F9E653 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE4F9B722C2ABFF200F9E653 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		CE4F9B7A2C2AC89600F9E653 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		CE4F9B722C2ABFF200F9E653 /* _TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TableViewCell.swift; sourceTree = "<group>"; };
+		CE4F9B7A2C2AC89600F9E653 /* _CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _CollectionViewCell.swift; sourceTree = "<group>"; };
 		CE4F9B7C2C2ACEC200F9E653 /* TMDBAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAPI.swift; sourceTree = "<group>"; };
 		CE4F9B7E2C2ACEFF00F9E653 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		CE4F9B832C2B0FA200F9E653 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		CE6F7DD62C2EECE2004D1DB6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CECCD7B92C2C6D6A006C3767 /* TMDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,6 +50,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE4F9B822C2AD35500F9E653 /* Kingfisher in Frameworks */,
+				CE6F7DDA2C2EFCEC004D1DB6 /* IQKeyboardManagerSwift in Frameworks */,
 				CE4F9B762C2AC24E00F9E653 /* SnapKit in Frameworks */,
 				CE4F9B792C2AC25800F9E653 /* Alamofire in Frameworks */,
 			);
@@ -78,14 +82,15 @@
 				CE4F9B7E2C2ACEFF00F9E653 /* APIKey.swift */,
 				CECCD7B92C2C6D6A006C3767 /* TMDBRequest.swift */,
 				CE4F9B7C2C2ACEC200F9E653 /* TMDBAPI.swift */,
+				CE4F9B622C2ABDAE00F9E653 /* TrendingMediaView.swift */,
+				CE4F9B722C2ABFF200F9E653 /* _TableViewCell.swift */,
+				CE4F9B7A2C2AC89600F9E653 /* _CollectionViewCell.swift */,
+				CE6F7DD62C2EECE2004D1DB6 /* SearchViewController.swift */,
 				CE4F9B5E2C2ABDAE00F9E653 /* AppDelegate.swift */,
 				CE4F9B602C2ABDAE00F9E653 /* SceneDelegate.swift */,
-				CE4F9B622C2ABDAE00F9E653 /* ViewController.swift */,
-				CE4F9B722C2ABFF200F9E653 /* TableViewCell.swift */,
-				CE4F9B7A2C2AC89600F9E653 /* CollectionViewCell.swift */,
 				CE4F9B642C2ABDAE00F9E653 /* Main.storyboard */,
-				CE4F9B672C2ABDB100F9E653 /* Assets.xcassets */,
 				CE4F9B692C2ABDB100F9E653 /* LaunchScreen.storyboard */,
+				CE4F9B672C2ABDB100F9E653 /* Assets.xcassets */,
 				CE4F9B6C2C2ABDB100F9E653 /* Info.plist */,
 			);
 			path = MediaProjectNetwork;
@@ -111,6 +116,7 @@
 				CE4F9B752C2AC24E00F9E653 /* SnapKit */,
 				CE4F9B782C2AC25800F9E653 /* Alamofire */,
 				CE4F9B812C2AD35500F9E653 /* Kingfisher */,
+				CE6F7DD92C2EFCEC004D1DB6 /* IQKeyboardManagerSwift */,
 			);
 			productName = MediaProjectNetwork;
 			productReference = CE4F9B5B2C2ABDAE00F9E653 /* MediaProjectNetwork.app */;
@@ -144,6 +150,7 @@
 				CE4F9B742C2AC24E00F9E653 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				CE4F9B772C2AC25800F9E653 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				CE4F9B802C2AD35500F9E653 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				CE6F7DD82C2EFCEC004D1DB6 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = CE4F9B5C2C2ABDAE00F9E653 /* Products */;
 			projectDirPath = "";
@@ -173,10 +180,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE4F9B7B2C2AC89600F9E653 /* CollectionViewCell.swift in Sources */,
+				CE4F9B7B2C2AC89600F9E653 /* _CollectionViewCell.swift in Sources */,
 				CE4F9B7F2C2ACEFF00F9E653 /* APIKey.swift in Sources */,
-				CE4F9B632C2ABDAE00F9E653 /* ViewController.swift in Sources */,
-				CE4F9B732C2ABFF200F9E653 /* TableViewCell.swift in Sources */,
+				CE4F9B632C2ABDAE00F9E653 /* TrendingMediaView.swift in Sources */,
+				CE6F7DD72C2EECE2004D1DB6 /* SearchViewController.swift in Sources */,
+				CE4F9B732C2ABFF200F9E653 /* _TableViewCell.swift in Sources */,
 				CECCD7BA2C2C6D6A006C3767 /* TMDBRequest.swift in Sources */,
 				CE4F9B5F2C2ABDAE00F9E653 /* AppDelegate.swift in Sources */,
 				CE4F9B612C2ABDAE00F9E653 /* SceneDelegate.swift in Sources */,
@@ -439,6 +447,14 @@
 				minimumVersion = 7.12.0;
 			};
 		};
+		CE6F7DD82C2EFCEC004D1DB6 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -456,6 +472,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE4F9B802C2AD35500F9E653 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		CE6F7DD92C2EFCEC004D1DB6 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE6F7DD82C2EFCEC004D1DB6 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

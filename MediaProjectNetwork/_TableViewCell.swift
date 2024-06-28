@@ -18,11 +18,11 @@ class TableViewCell: UITableViewCell {
         view.textColor = .white
         return view
     }()
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout())
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout(w: 120, h: 160))
     
-    static func layout() -> UICollectionViewLayout {
+    static func layout(w: Int, h: Int) -> UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 120, height: 160)
+        layout.itemSize = CGSize(width: w, height: h)
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
@@ -33,8 +33,7 @@ class TableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        
-        contentView.backgroundColor = .black
+        contentView.backgroundColor = .brown
         contentView.addSubview(categoryLabel)
         contentView.addSubview(collectionView)
         
@@ -45,7 +44,7 @@ class TableViewCell: UITableViewCell {
             make.top.equalTo(categoryLabel.snp.bottom)
             make.horizontalEdges.bottom.equalTo(contentView.safeAreaLayoutGuide)
         }
-        collectionView.backgroundColor = .none
+        collectionView.backgroundColor = .cyan
     }
     
     required init?(coder: NSCoder) {

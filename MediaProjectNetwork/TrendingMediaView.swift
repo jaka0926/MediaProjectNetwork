@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TrendingMediaView.swift
 //  MediaProjectNetwork
 //
 //  Created by Jaka on 2024-06-25.
@@ -9,14 +9,13 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class ViewController: UIViewController {
+class TrendingMediaView: UIViewController {
     
     lazy var tableView = {
         let view = UITableView()
         view.delegate = self
         view.dataSource = self
         view.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.id)
-        view.rowHeight = 220
         return view
     }()
     let categoryTitles = ["Movies", "Series", "People"]
@@ -29,6 +28,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         title = "TRENDING"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search", style: .plain, target: self, action: #selector(rightBarButtonClicked))
+        
         view.backgroundColor = .black
         view.addSubview(tableView)
         tableView.backgroundColor = .none
@@ -74,9 +75,13 @@ class ViewController: UIViewController {
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
+    
+    @objc func rightBarButtonClicked() {
+        navigationController?.pushViewController(SearchViewController(), animated: true)
+    }
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension TrendingMediaView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -92,11 +97,21 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.categoryLabel.text = categoryTitles[cell.collectionView.tag]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 2 {
+            return 260
+        }
+        return 220
+    }
 }
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension TrendingMediaView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageList[0].count
+//        print("imageList0: ", imageList[0].count)
+//        print("imageList1: ", imageList[1].count)
+//        print("imageListPeople: ",imageListPeople.count)
+        return imageList[1].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

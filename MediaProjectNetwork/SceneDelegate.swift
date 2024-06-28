@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: scene)
         
-        let vc = UINavigationController(rootViewController: ViewController())
+        let vc = UINavigationController(rootViewController: TrendingMediaView())
         
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
