@@ -1,5 +1,5 @@
 //
-//  CollectionViewCell.swift
+//  TrendingCollectionViewCell.swift
 //  MediaProjectNetwork
 //
 //  Created by Jaka on 2024-06-25.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class CollectionViewCell: UICollectionViewCell {
+class TrendingCollectionViewCell: UICollectionViewCell {
     
     static let id = "CollectionViewCell"
     let posterImage = UIImageView()
@@ -20,10 +20,9 @@ class CollectionViewCell: UICollectionViewCell {
         posterImage.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        posterImage.backgroundColor = .brown
         posterImage.layer.cornerRadius = 10
         posterImage.clipsToBounds = true
-        posterImage.contentMode = .scaleAspectFill
+        
     }
     
     required init?(coder: NSCoder) {

@@ -1,5 +1,5 @@
 //
-//  TableViewCell.swift
+//  TrendingTableViewCell.swift
 //  MediaProjectNetwork
 //
 //  Created by Jaka on 2024-06-25.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class TableViewCell: UITableViewCell {
+class TrendingTableViewCell: UITableViewCell {
     
     static let id = "TableViewCell"
     lazy var categoryLabel = {
@@ -33,7 +33,7 @@ class TableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.backgroundColor = .brown
+        contentView.backgroundColor = .black
         contentView.addSubview(categoryLabel)
         contentView.addSubview(collectionView)
         
@@ -44,7 +44,8 @@ class TableViewCell: UITableViewCell {
             make.top.equalTo(categoryLabel.snp.bottom)
             make.horizontalEdges.bottom.equalTo(contentView.safeAreaLayoutGuide)
         }
-        collectionView.backgroundColor = .cyan
+        
+        collectionView.backgroundColor = .none
     }
     
     required init?(coder: NSCoder) {

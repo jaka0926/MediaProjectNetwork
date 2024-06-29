@@ -12,6 +12,9 @@ enum TMDBRequest {
     case trendingMovie
     case trendingTV
     case trendingPeople
+    case searchMultiMedia
+    case genreListTV
+    case genreListMovie
     
     var baseURL: String {
         return "https://api.themoviedb.org/3/"
@@ -25,7 +28,14 @@ enum TMDBRequest {
             return URL(string: baseURL + "trending/tv/day")!
         case .trendingPeople:
             return URL(string: baseURL + "trending/person/day")!
+        case .searchMultiMedia:
+            return URL(string: baseURL + "search/multi")!
+        case .genreListTV:
+            return URL(string: baseURL + "genre/tv/list")!
+        case .genreListMovie:
+            return URL(string: baseURL + "genre/movie/list")!
         }
+        
     }
     
     var header: HTTPHeaders {

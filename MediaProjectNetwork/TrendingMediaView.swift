@@ -15,7 +15,7 @@ class TrendingMediaView: UIViewController {
         let view = UITableView()
         view.delegate = self
         view.dataSource = self
-        view.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.id)
+        view.register(TrendingTableViewCell.self, forCellReuseIdentifier: TrendingTableViewCell.id)
         return view
     }()
     let categoryTitles = ["Movies", "Series", "People"]
@@ -87,11 +87,11 @@ extension TrendingMediaView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.id) as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TrendingTableViewCell.id) as! TrendingTableViewCell
         
         cell.collectionView.dataSource = self
         cell.collectionView.delegate = self
-        cell.collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.id)
+        cell.collectionView.register(TrendingCollectionViewCell.self, forCellWithReuseIdentifier: TrendingCollectionViewCell.id)
         cell.collectionView.tag = indexPath.row
         cell.collectionView.reloadData()
         cell.categoryLabel.text = categoryTitles[cell.collectionView.tag]
@@ -115,16 +115,21 @@ extension TrendingMediaView: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.id, for: indexPath) as! CollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendingCollectionViewCell.id, for: indexPath) as! TrendingCollectionViewCell
         var url: URL
         
         switch collectionView.tag {
         case 2: let data = imageListPeople[indexPath.item]
-                url = URL(string: "https://image.tmdb.org/t/p/w500\(data.profile_path)")!
+            if data.profile_path == nil {
+                cell.posterImage.image = UIImage(systemName: "questionmark.square")
+                cell.posterImage.tintColor = .white
+                cell.posterImage.contentMode = .scaleAspectFit
+                return cell }
+            url = URL(string: "https://image.tmdb.org/t/p/w500\(data.profile_path!)")!
         default: let data = imageList[collectionView.tag][indexPath.item]
-                 url = URL(string: "https://image.tmdb.org/t/p/w500\(data.poster_path)")!
+                 url = URL(string: "https://image.tmdb.org/t/p/w500\(data.poster_path!)")!
         }
-        
+        cell.posterImage.contentMode = .scaleAspectFill
         cell.posterImage.kf.setImage(with: url)
         return cell
     }
