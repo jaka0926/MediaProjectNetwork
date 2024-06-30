@@ -21,9 +21,11 @@
 		CE4F9B7F2C2ACEFF00F9E653 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9B7E2C2ACEFF00F9E653 /* APIKey.swift */; };
 		CE4F9B822C2AD35500F9E653 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CE4F9B812C2AD35500F9E653 /* Kingfisher */; };
 		CE4F9B842C2B0FA200F9E653 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = CE4F9B832C2B0FA200F9E653 /* .gitignore */; };
+		CE5FFD482C3180730021456B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5FFD472C3180730021456B /* DetailViewController.swift */; };
+		CE5FFD4D2C3188810021456B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5FFD4C2C3188810021456B /* TabBarController.swift */; };
 		CE6F7DD72C2EECE2004D1DB6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F7DD62C2EECE2004D1DB6 /* SearchViewController.swift */; };
 		CE6F7DDA2C2EFCEC004D1DB6 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE6F7DD92C2EFCEC004D1DB6 /* IQKeyboardManagerSwift */; };
-		CE6F7DDC2C2F0850004D1DB6 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F7DDB2C2F0850004D1DB6 /* SearchTableViewCell.swift */; };
+		CE6F7DDC2C2F0850004D1DB6 /* _SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F7DDB2C2F0850004D1DB6 /* _SearchTableViewCell.swift */; };
 		CECCD7BA2C2C6D6A006C3767 /* TMDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCD7B92C2C6D6A006C3767 /* TMDBRequest.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,8 +43,10 @@
 		CE4F9B7C2C2ACEC200F9E653 /* TMDBAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAPI.swift; sourceTree = "<group>"; };
 		CE4F9B7E2C2ACEFF00F9E653 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		CE4F9B832C2B0FA200F9E653 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		CE5FFD472C3180730021456B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CE5FFD4C2C3188810021456B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CE6F7DD62C2EECE2004D1DB6 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		CE6F7DDB2C2F0850004D1DB6 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		CE6F7DDB2C2F0850004D1DB6 /* _SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _SearchTableViewCell.swift; sourceTree = "<group>"; };
 		CECCD7B92C2C6D6A006C3767 /* TMDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,11 +88,10 @@
 				CE4F9B7E2C2ACEFF00F9E653 /* APIKey.swift */,
 				CECCD7B92C2C6D6A006C3767 /* TMDBRequest.swift */,
 				CE4F9B7C2C2ACEC200F9E653 /* TMDBAPI.swift */,
-				CE4F9B622C2ABDAE00F9E653 /* TrendingMediaView.swift */,
-				CE4F9B722C2ABFF200F9E653 /* _TrendingTableViewCell.swift */,
-				CE4F9B7A2C2AC89600F9E653 /* _TrendingCollectionViewCell.swift */,
-				CE6F7DD62C2EECE2004D1DB6 /* SearchViewController.swift */,
-				CE6F7DDB2C2F0850004D1DB6 /* SearchTableViewCell.swift */,
+				CE5FFD4C2C3188810021456B /* TabBarController.swift */,
+				CE5FFD492C3187E50021456B /* TrendingPage */,
+				CE5FFD4A2C3187FA0021456B /* SearchPage */,
+				CE5FFD4B2C3188250021456B /* DetailPage */,
 				CE4F9B5E2C2ABDAE00F9E653 /* AppDelegate.swift */,
 				CE4F9B602C2ABDAE00F9E653 /* SceneDelegate.swift */,
 				CE4F9B642C2ABDAE00F9E653 /* Main.storyboard */,
@@ -97,6 +100,33 @@
 				CE4F9B6C2C2ABDB100F9E653 /* Info.plist */,
 			);
 			path = MediaProjectNetwork;
+			sourceTree = "<group>";
+		};
+		CE5FFD492C3187E50021456B /* TrendingPage */ = {
+			isa = PBXGroup;
+			children = (
+				CE4F9B622C2ABDAE00F9E653 /* TrendingMediaView.swift */,
+				CE4F9B722C2ABFF200F9E653 /* _TrendingTableViewCell.swift */,
+				CE4F9B7A2C2AC89600F9E653 /* _TrendingCollectionViewCell.swift */,
+			);
+			path = TrendingPage;
+			sourceTree = "<group>";
+		};
+		CE5FFD4A2C3187FA0021456B /* SearchPage */ = {
+			isa = PBXGroup;
+			children = (
+				CE6F7DD62C2EECE2004D1DB6 /* SearchViewController.swift */,
+				CE6F7DDB2C2F0850004D1DB6 /* _SearchTableViewCell.swift */,
+			);
+			path = SearchPage;
+			sourceTree = "<group>";
+		};
+		CE5FFD4B2C3188250021456B /* DetailPage */ = {
+			isa = PBXGroup;
+			children = (
+				CE5FFD472C3180730021456B /* DetailViewController.swift */,
+			);
+			path = DetailPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE5FFD482C3180730021456B /* DetailViewController.swift in Sources */,
 				CE4F9B7B2C2AC89600F9E653 /* _TrendingCollectionViewCell.swift in Sources */,
 				CE4F9B7F2C2ACEFF00F9E653 /* APIKey.swift in Sources */,
 				CE4F9B632C2ABDAE00F9E653 /* TrendingMediaView.swift in Sources */,
@@ -191,8 +222,9 @@
 				CECCD7BA2C2C6D6A006C3767 /* TMDBRequest.swift in Sources */,
 				CE4F9B5F2C2ABDAE00F9E653 /* AppDelegate.swift in Sources */,
 				CE4F9B612C2ABDAE00F9E653 /* SceneDelegate.swift in Sources */,
+				CE5FFD4D2C3188810021456B /* TabBarController.swift in Sources */,
 				CE4F9B7D2C2ACEC200F9E653 /* TMDBAPI.swift in Sources */,
-				CE6F7DDC2C2F0850004D1DB6 /* SearchTableViewCell.swift in Sources */,
+				CE6F7DDC2C2F0850004D1DB6 /* _SearchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

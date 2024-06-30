@@ -25,14 +25,13 @@ struct ResultPeople: Decodable {
 
 // MARK: - SearchMultiMedia
 struct SearchMultiMedia: Decodable {
-    //let page: Int
     let results: [ResultSearch]
-    //let totalPages, totalResults: Int
 }
 
 struct ResultSearch: Decodable {
     let name: String?
     let title: String?
+    let overview: String?
     let release_date, first_air_date: String?
     let genre_ids: [Int]?
     let vote_average: Double?

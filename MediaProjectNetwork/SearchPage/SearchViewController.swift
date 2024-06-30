@@ -14,13 +14,13 @@ class SearchViewController: UIViewController {
     let tableView = UITableView()
     var list: [ResultSearch] = []
     var GenreList: [GenreResult] = []
-    var GenreListCleaned: [GenreResult] = []
-    var count = [1, 2]
+    var GenreListCombined: [GenreResult] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "SEARCH"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         view.backgroundColor = .black
         view.addSubview(searchField)
         view.addSubview(tableView)
@@ -44,14 +44,13 @@ class SearchViewController: UIViewController {
             }
         }
         group.notify(queue: .main) {
-            self.GenreListCleaned = Array(Set(self.GenreList))
+            self.GenreListCombined = Array(Set(self.GenreList))
             print("SEARCH=====3")
             print(self.GenreList.count)
-            print(self.GenreListCleaned.count)
-            dump(self.GenreListCleaned)
-            print(self.GenreListCleaned[0])
+            print(self.GenreListCombined.count)
+            dump(self.GenreListCombined)
+            print(self.GenreListCombined[0])
         }
-        
         
         configureLayoutAndUI()
         searchField.addTarget(self, action: #selector(searchButtonClicked), for: .editingDidEndOnExit)
@@ -90,7 +89,6 @@ class SearchViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
-        dump(GenreList)
     }
 }
 
@@ -112,7 +110,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         }
         var genreNames: [String] = []
         for id in genreIds! {
-            for num in GenreListCleaned {
+            for num in GenreListCombined {
                 if id == num.id {
                     genreNames.append(num.name)
                 }
@@ -123,5 +121,25 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = list[indexPath.row]
+        let vc = DetailViewController()
+        dump(data)
+        
+        var genreNames: [String] = []
+        if data.genre_ids != nil {
+            for id in data.genre_ids! {
+                for num in GenreListCombined {
+                    if id == num.id {
+                        genreNames.append(num.name)
+                    }
+                }
+            }
+            vc.genres.text = "Genres: " + genreNames.joined(separator: ", ")
+        }
+        
+        vc.navigationItem.title = data.name ?? data.title ?? "Title Not Found"
+        vc.configureUI(data)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

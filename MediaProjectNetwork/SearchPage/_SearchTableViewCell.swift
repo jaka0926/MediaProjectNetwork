@@ -64,19 +64,19 @@ class SearchTableViewCell: UITableViewCell {
     
     func configureUI(_ data: ResultSearch) {
         
-        posterImage.backgroundColor = .brown
-        name.font = .boldSystemFont(ofSize: 18)
+        posterImage.backgroundColor = .darkGray
+        name.font = .monospacedDigitSystemFont(ofSize: 18, weight: .heavy)
         name.textColor = .white
         name.text = data.name ?? data.title
         
         releaseDate.font = .systemFont(ofSize: 14)
         releaseDate.textColor = .white
-        let airDate = data.release_date ?? data.first_air_date
-        releaseDate.text = (airDate != nil) ? "Aired: \(airDate!)" : ""
+        let airDate = data.release_date ?? data.first_air_date ?? ""
+        releaseDate.text = airDate
         
         genreList.textColor = .white
         
-        rating.textColor = .red
+        rating.textColor = .systemTeal
         rating.font = .boldSystemFont(ofSize: 16)
         rating.text = (data.vote_average != nil) ? "Rating: \(data.vote_average!.formatted(.number.precision(.fractionLength(1)))) (\(data.vote_count!.formatted()) votes)" : ""
         

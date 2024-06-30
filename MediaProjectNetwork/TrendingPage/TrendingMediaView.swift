@@ -16,6 +16,7 @@ class TrendingMediaView: UIViewController {
         view.delegate = self
         view.dataSource = self
         view.register(TrendingTableViewCell.self, forCellReuseIdentifier: TrendingTableViewCell.id)
+        view.isScrollEnabled = false
         return view
     }()
     let categoryTitles = ["Movies", "Series", "People"]
@@ -28,7 +29,6 @@ class TrendingMediaView: UIViewController {
         super.viewDidLoad()
         title = "TRENDING"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Search", style: .plain, target: self, action: #selector(rightBarButtonClicked))
         
         view.backgroundColor = .black
         view.addSubview(tableView)
@@ -99,18 +99,13 @@ extension TrendingMediaView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 2 {
-            return 260
-        }
+    
         return 220
     }
 }
 
 extension TrendingMediaView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        print("imageList0: ", imageList[0].count)
-//        print("imageList1: ", imageList[1].count)
-//        print("imageListPeople: ",imageListPeople.count)
         return imageList[1].count
     }
     

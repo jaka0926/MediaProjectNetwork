@@ -20,9 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: scene)
         
-        let vc = UINavigationController(rootViewController: TrendingMediaView())
+        //let vc = UINavigationController(rootViewController: TabBarController())
         
-        window?.rootViewController = vc
+        window?.rootViewController = TabBarController()
         window?.makeKeyAndVisible()
     }
 
