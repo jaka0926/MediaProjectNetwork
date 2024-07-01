@@ -13,8 +13,9 @@ class SearchViewController: UIViewController {
     let searchField = UISearchTextField()
     let tableView = UITableView()
     var list: [ResultSearch] = []
-    var GenreList: [GenreResult] = []
-    var GenreListCombined: [GenreResult] = []
+    var GenreList: [ResultGenre] = []
+    var GenreListCombined: [ResultGenre] = []
+    var videoData: [ResultVideo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,11 +83,14 @@ class SearchViewController: UIViewController {
     
     @objc func searchButtonClicked() {
         print(#function)
+        
+        
         TMDBAPI.shared.searchMultiMedia(api: TMDBRequest.searchMultiMedia, query: searchField.text!) { data in
             self.list = data
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
             }
         }
     }
@@ -124,7 +128,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = list[indexPath.row]
         let vc = DetailViewController()
-        dump(data)
         
         var genreNames: [String] = []
         if data.genre_ids != nil {
@@ -138,8 +141,19 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             vc.genres.text = "Genres: " + genreNames.joined(separator: ", ")
         }
         
+        var mediaType = data.media_type
+        dump(data)
+        
+        TMDBAPI.shared.youtubeVideo(api: TMDBRequest.video, mediaType: mediaType.rawValue, mediaId: data.id) { data in
+            DispatchQueue.main.async {
+                self.videoData = data
+                dump(self.videoData)
+            }
+        }
+        
+        
         vc.navigationItem.title = data.name ?? data.title ?? "Title Not Found"
-        vc.configureUI(data)
+        //vc.configureUI(data, <#String#>)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -15,6 +15,7 @@ enum TMDBRequest {
     case searchMultiMedia
     case genreListTV
     case genreListMovie
+    case video
     
     var baseURL: String {
         return "https://api.themoviedb.org/3/"
@@ -34,6 +35,8 @@ enum TMDBRequest {
             return URL(string: baseURL + "genre/tv/list")!
         case .genreListMovie:
             return URL(string: baseURL + "genre/movie/list")!
+        case .video:
+            return URL(string: baseURL)!
         }
         
     }

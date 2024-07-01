@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Kingfisher
+import WebKit
 
 class DetailViewController: UIViewController {
     
@@ -18,6 +19,7 @@ class DetailViewController: UIViewController {
     let airDate = UILabel()
     let rating = UIButton()
     let genres = UILabel()
+    let videoView = WKWebView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,7 @@ class DetailViewController: UIViewController {
         contentView.addSubview(overView)
         contentView.addSubview(airDate)
         contentView.addSubview(rating)
+        contentView.addSubview(videoView)
         
         configureLayout()
         
@@ -65,11 +68,16 @@ class DetailViewController: UIViewController {
         overView.snp.makeConstraints { make in
             make.top.equalTo(genres.snp.bottom).offset(10)
             make.horizontalEdges.equalTo(posterImage)
+        }
+        videoView.snp.makeConstraints { make in
+            make.top.equalTo(overView.snp.bottom).offset(10)
+            make.horizontalEdges.equalTo(posterImage)
+            make.height.equalTo(300)
             make.bottom.equalTo(contentView).offset(-20)
         }
     }
     
-    func configureUI(_ data: ResultSearch) {
+    func configureUI(_ data: ResultSearch, _ videoKey: String) {
         
         posterImage.backgroundColor = .brown
         let url = URL(string: "https://image.tmdb.org/t/p/w500\(data.poster_path ?? data.profile_path ?? "")")!
@@ -97,5 +105,10 @@ class DetailViewController: UIViewController {
         overView.text = data.overview
         overView.textColor = .white
         overView.numberOfLines = 0
+        
+        let videoURL = URL(string: "https://www.youtube.com/watch?v=\(videoKey)")
+        let request = URLRequest(url: videoURL!)
+        videoView.load(request)
+        
     }
 }

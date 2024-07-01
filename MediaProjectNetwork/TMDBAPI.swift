@@ -29,6 +29,7 @@ struct SearchMultiMedia: Decodable {
 }
 
 struct ResultSearch: Decodable {
+    let id: Int
     let name: String?
     let title: String?
     let overview: String?
@@ -47,12 +48,21 @@ enum MediaType: String, Decodable {
 
 // MARK: - GenreList
 struct GenreList: Decodable {
-    let genres: [GenreResult]
+    let genres: [ResultGenre]
 }
 
-struct GenreResult: Decodable, Hashable {
+struct ResultGenre: Decodable, Hashable {
     let id: Int
     let name: String
+}
+
+// MARK: - Videos
+struct Videos: Decodable {
+    let id: Int
+    let results: [ResultVideo]
+}
+struct ResultVideo: Decodable {
+    let name, key: String
 }
 
 class TMDBAPI {
@@ -92,16 +102,6 @@ class TMDBAPI {
             case .failure(let error):
                 print("FAILURE")
                 dump(error)
-                
-//                if !error.isInvalidURLError && error.
-//                print("isInvalidURLError", error.isInvalidURLError)
-//                print("responseCode", error.responseCode)
-//                print("responseContentType", error.responseContentType)
-//                print("isResponseValidationError", error.isResponseValidationError)
-//                print("errorDescription", error.errorDescription)
-//                print("failedStringEncoding", error.failedStringEncoding)
-//                print("isResponseSerializationError", error.isResponseSerializationError)
-//                dump(error)
             }
         }
     }
@@ -124,7 +124,7 @@ class TMDBAPI {
         }
     }
     
-    func genreList(api: TMDBRequest, completionHandler: @escaping ([GenreResult]) -> Void) {
+    func genreList(api: TMDBRequest, completionHandler: @escaping ([ResultGenre]) -> Void) {
         
         AF.request(api.endpoint,
                    method: api.method,
@@ -135,6 +135,24 @@ class TMDBAPI {
             case .success(let value):
                 print("SUCCESS")
                 completionHandler(value.genres)
+            case .failure(let error):
+                print("FAILURE", error)
+            }
+        }
+    }
+    
+    func youtubeVideo(api: TMDBRequest, mediaType: String, mediaId: Int, completionHandler: @escaping ([ResultVideo]) -> Void) {
+        
+        let url = "https://api.themoviedb.org/3/\(mediaType)/\(mediaId)/videos"
+        AF.request(url,
+                   method: api.method,
+                   headers: api.header)
+        .responseDecodable(of: Videos.self) { response in
+                
+            switch response.result {
+            case .success(let value):
+                print("SUCCESS")
+                completionHandler(value.results)
             case .failure(let error):
                 print("FAILURE", error)
             }
