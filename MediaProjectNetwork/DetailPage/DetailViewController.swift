@@ -72,12 +72,11 @@ class DetailViewController: UIViewController {
         videoView.snp.makeConstraints { make in
             make.top.equalTo(overView.snp.bottom).offset(10)
             make.horizontalEdges.equalTo(posterImage)
-            make.height.equalTo(300)
             make.bottom.equalTo(contentView).offset(-20)
         }
     }
     
-    func configureUI(_ data: ResultSearch, _ videoKey: String) {
+    func configureUI(_ data: ResultSearch) {
         
         posterImage.backgroundColor = .brown
         let url = URL(string: "https://image.tmdb.org/t/p/w500\(data.poster_path ?? data.profile_path ?? "")")!
@@ -105,10 +104,14 @@ class DetailViewController: UIViewController {
         overView.text = data.overview
         overView.textColor = .white
         overView.numberOfLines = 0
-        
+    }
+    
+    func configureVideo(_ videoKey: String) {
+        videoView.snp.makeConstraints { make in
+            make.height.equalTo(300)
+        }
         let videoURL = URL(string: "https://www.youtube.com/watch?v=\(videoKey)")
         let request = URLRequest(url: videoURL!)
         videoView.load(request)
-        
     }
 }

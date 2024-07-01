@@ -142,18 +142,21 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         var mediaType = data.media_type
-        dump(data)
+        var videoKey = ""
+        print(mediaType.rawValue)
+        print(data.id)
         
-        TMDBAPI.shared.youtubeVideo(api: TMDBRequest.video, mediaType: mediaType.rawValue, mediaId: data.id) { data in
+        TMDBAPI.shared.youtubeVideo(api: TMDBRequest.video, mediaType: mediaType.rawValue, mediaId: data.id) { response in
             DispatchQueue.main.async {
-                self.videoData = data
-                dump(self.videoData)
+                if !response.isEmpty {
+                    videoKey = response[0].key
+                    vc.configureVideo(videoKey)
+                }
             }
         }
         
-        
+        vc.configureUI(data)
         vc.navigationItem.title = data.name ?? data.title ?? "Title Not Found"
-        //vc.configureUI(data, <#String#>)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -151,10 +151,10 @@ class TMDBAPI {
                 
             switch response.result {
             case .success(let value):
-                print("SUCCESS")
+                print("SUCCESS ==== VIDEO API")
                 completionHandler(value.results)
             case .failure(let error):
-                print("FAILURE", error)
+                print("FAILURE ==== VIDEO API", error)
             }
         }
     }
